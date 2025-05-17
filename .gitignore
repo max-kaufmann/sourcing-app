@@ -1,0 +1,13 @@
+# Venvs
+.env/
+.venv/
+.env
+scratch
+.DS_Store
+
+# Build
+__pycache__/
+*.egg-info
+
+# Settings
+.vscode/
