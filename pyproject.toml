@@ -1,13 +1,24 @@
 [project]
 name = "sourcing-app"
 version = "0.1.0"
-description = "Add your description here"
+description = "ArXiv author sourcing application for AISI"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "anthropic>=0.51.0",
     "arxiv>=2.2.0",
+    "dotenv>=0.9.9",
     "inspect-ai>=0.3.97",
     "ipykernel>=6.29.5",
     "ipywidgets>=8.1.7",
+    "pydantic>=2.11.4",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

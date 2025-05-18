@@ -1,5 +1,4 @@
 import subprocess
-import sys
 from typing import cast
 
 from griffe import Module
@@ -39,7 +38,7 @@ def main():
 
                 # render docs
                 return render_docs(elem, docs)
-            
+
     # click cli
     def click_cli(elem: pf.Element, doc: pf.Doc):
         if isinstance(elem, pf.Doc):
@@ -48,7 +47,6 @@ def main():
                 command = title.split(" ")[1]
                 docs = "\n".join(list(make_command_docs(command)))
                 doc.content.append(pf.RawBlock(docs, "markdown"))
-               
 
     return pf.run_filters([python_api, click_cli])
 

@@ -58,7 +58,7 @@ def _recursively_make_command_docs(
 
     if ctx.command.hidden and not show_hidden:
         return
-    
+
     subcommands = _get_sub_commands(ctx.command, ctx)
 
     if parent is not None:
@@ -68,7 +68,7 @@ def _recursively_make_command_docs(
     if len(subcommands) == 0:
         yield from _make_options(ctx, style, show_hidden=show_hidden)
         return
-    
+
     if list_subcommands:
         yield from _make_subcommands_links(
             subcommands,
@@ -93,10 +93,14 @@ def _recursively_make_command_docs(
 def _build_command_context(
     prog_name: str, command: click.BaseCommand, parent: click.Context | None
 ) -> click.Context:
-    return click.Context(cast(click.Command, command), info_name=prog_name, parent=parent)
+    return click.Context(
+        cast(click.Command, command), info_name=prog_name, parent=parent
+    )
 
 
-def _get_sub_commands(command: click.Command, ctx: click.Context) -> list[click.Command]:
+def _get_sub_commands(
+    command: click.Command, ctx: click.Context
+) -> list[click.Command]:
     """Return subcommands of a Click command."""
     subcommands = getattr(command, "commands", {})
     if subcommands:
@@ -115,7 +119,9 @@ def _get_sub_commands(command: click.Command, ctx: click.Context) -> list[click.
     return subcommands
 
 
-def _make_title(ctx: click.Context, depth: int, *, has_attr_list: bool) -> Iterator[str]:
+def _make_title(
+    ctx: click.Context, depth: int, *, has_attr_list: bool
+) -> Iterator[str]:
     """Create the Markdown heading for a command."""
     if has_attr_list:
         yield from _make_title_full_command_path(ctx, depth)
@@ -152,7 +158,9 @@ def _make_title_full_command_path(ctx: click.Context, depth: int) -> Iterator[st
     yield ""
 
 
-def _make_description(ctx: click.Context, remove_ascii_art: bool = False) -> Iterator[str]:
+def _make_description(
+    ctx: click.Context, remove_ascii_art: bool = False
+) -> Iterator[str]:
     """Create markdown lines based on the command's own description."""
     help_string = ctx.command.help or ctx.command.short_help
 
@@ -187,7 +195,9 @@ def _make_usage(ctx: click.Context) -> Iterator[str]:
     # Gets the usual 'Usage' string without the prefix.
     formatter = ctx.make_formatter()
     pieces = ctx.command.collect_usage_pieces(ctx)
-    formatter.write_usage(ctx.command_path.replace("_", "-"), " ".join(pieces), prefix="")
+    formatter.write_usage(
+        ctx.command_path.replace("_", "-"), " ".join(pieces), prefix=""
+    )
     usage = formatter.getvalue().rstrip("\n")
 
     yield "#### Usage"
@@ -217,7 +227,9 @@ def _make_options(
 def _show_options(ctx: click.Context) -> Iterator[None]:
     """Context manager that temporarily shows all hidden options."""
     options = [
-        opt for opt in ctx.command.get_params(ctx) if isinstance(opt, click.Option) and opt.hidden
+        opt
+        for opt in ctx.command.get_params(ctx)
+        if isinstance(opt, click.Option) and opt.hidden
     ]
 
     try:
@@ -264,32 +276,33 @@ _HTML_PIPE = "&#x7C;"
 def _format_table_option_type(option: click.Option) -> str:
     typename = option.type.name
 
-
     if isinstance(option.type, click.Choice):
         # @click.option(..., type=click.Choice(["A", "B", "C"]))
         # -> choices (`A` | `B` | `C`)
-        choices = f" {_HTML_PIPE} ".join(f"`{choice}`" for choice in option.type.choices)
+        choices = f" {_HTML_PIPE} ".join(
+            f"`{choice}`" for choice in option.type.choices
+        )
         return f"{typename} ({choices})"
 
     if isinstance(option.type, click.DateTime):
         # @click.option(..., type=click.DateTime(["A", "B", "C"]))
         # -> datetime (`%Y-%m-%d` | `%Y-%m-%dT%H:%M:%S` | `%Y-%m-%d %H:%M:%S`)
-        formats = f" {_HTML_PIPE} ".join(f"`{fmt}`" for fmt in option.type.formats) 
+        formats = f" {_HTML_PIPE} ".join(f"`{fmt}`" for fmt in option.type.formats)
         return f"{typename} ({formats})"
 
     if isinstance(option.type, (click.IntRange, click.FloatRange)):
-        if option.type.min is not None and option.type.max is not None:  
+        if option.type.min is not None and option.type.max is not None:
             # @click.option(..., type=click.IntRange(min=0, max=10))
             # -> integer range (between `0` and `10`)
-            return f"{typename} (between `{option.type.min}` and `{option.type.max}`)" 
+            return f"{typename} (between `{option.type.min}` and `{option.type.max}`)"
         elif option.type.min is not None:
             # @click.option(..., type=click.IntRange(min=0))
             # -> integer range (`0` and above)
-            return f"{typename} (`{option.type.min}` and above)" 
+            return f"{typename} (`{option.type.min}` and above)"
         else:
             # @click.option(..., type=click.IntRange(max=10))
             # -> integer range (`10` and below)
-            return f"{typename} (`{option.type.max}` and below)" 
+            return f"{typename} (`{option.type.max}` and below)"
 
     # -> "boolean", "text", etc.
     return typename
@@ -323,7 +336,11 @@ def _format_table_option_row(option: click.Option) -> str:
 def _make_table_options(ctx: click.Context, show_hidden: bool = False) -> Iterator[str]:
     """Create the table style options description."""
 
-    options = [param for param in ctx.command.get_params(ctx) if isinstance(param, click.Option)]
+    options = [
+        param
+        for param in ctx.command.get_params(ctx)
+        if isinstance(param, click.Option)
+    ]
     options = [option for option in options if not option.hidden or show_hidden]
     option_rows = [_format_table_option_row(option) for option in options]
 
