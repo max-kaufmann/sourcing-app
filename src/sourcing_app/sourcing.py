@@ -1,6 +1,4 @@
 import arxiv
-import string
-from dataclasses import dataclass, field
 from pathlib import Path
 from inspect_ai import Task, task
 from inspect_ai.dataset import Sample, MemoryDataset
@@ -10,7 +8,6 @@ from typing import TypedDict, Any
 from pydantic import ValidationError
 from inspect_ai.solver import (
     solver,
-    basic_agent,
     Solver,
     Generate,
     system_message,
@@ -20,13 +17,9 @@ from inspect_ai.solver import (
 )
 import json
 import re
-from inspect_ai.scorer import Scorer, Target, score, Score, ValueToFloat, value_to_float
+from inspect_ai.scorer import Scorer, Target, Score
 
-from typing import Awaitable, Callable, cast
 
-from typing_extensions import Unpack
-
-from inspect_ai._util._async import is_callable_coroutine
 from inspect_ai.model import CachePolicy
 from pydantic import Field
 from inspect_ai.model._call_tools import execute_tools
@@ -51,28 +44,51 @@ class Author(BaseModel):
     paper_url: str | None = None
     paper_pdf: Path | None = None
 
+
 class Candidate(BaseModel):
     """Enhanced author data with detailed information after web searching and scoring. Extra field annotations are added for the LLM to understand what its aim is."""
 
     # Professional information
-    current_role: str | None = Field(description = "The author's current role, if they have one.")
-    organization: str | None = Field(description = "The organization the author works at, if they have one.")
-    location: str | None = Field(description = "What country the author is based in.")
+    current_role: str | None = Field(
+        description="The author's current role, if they have one."
+    )
+    organization: str | None = Field(
+        description="The organization the author works at, if they have one."
+    )
+    location: str | None = Field(description="What country the author is based in.")
     # URLs to author profiles
-    personal_website: str | None = Field(description = "The URL to the author's personal website")
-    linkedin_url: str | None = Field(description = "The URL to the author's LinkedIn profile")
-    scholar_url: str | None = Field(description = "The URL to the author's Google Scholar profile")
+    personal_website: str | None = Field(
+        description="The URL to the author's personal website"
+    )
+    linkedin_url: str | None = Field(
+        description="The URL to the author's LinkedIn profile"
+    )
+    scholar_url: str | None = Field(
+        description="The URL to the author's Google Scholar profile"
+    )
 
     # Summary of their background
-    summary: str | None = Field(description = "A high-level summary of the author's background, including their current role, organization, years of experience, and any other relevant information, from the perspective of sourcing.")
+    summary: str | None = Field(
+        description="A high-level summary of the author's background, including their current role, organization, years of experience, and any other relevant information, from the perspective of sourcing."
+    )
 
     # Level of difficulty while sourcing
-    problem_level_while_soucing: Literal[1,2,3,4,5] | None = Field(description = "The level of difficulty you had while sourcing the author. 1 is no problems, meaning that you feel confident that you got most of the relevant background information for the author, 5 is very difficult, meaning that you feel that you were not able to get much information about the author.")
-    problems_while_sourcing: str | None = Field(description = "Any problems you had while sourcing the author. Problems may include that the author has a common name, so that you were confused, or you were blocked.")
+    problem_level_while_soucing: Literal[1, 2, 3, 4, 5] | None = Field(
+        description="The level of difficulty you had while sourcing the author. 1 is no problems, meaning that you feel confident that you got most of the relevant background information for the author, 5 is very difficult, meaning that you feel that you were not able to get much information about the author."
+    )
+    problems_while_sourcing: str | None = Field(
+        description="Any problems you had while sourcing the author. Problems may include that the author has a common name, so that you were confused, or you were blocked."
+    )
+
 
 class RatedCandidate(BaseModel):
-    candidate_rating: Literal[1,2,3,4,5] | None = Field(description = "The rating of the candidate, from 1 to 5, where 1 is the worst and 5 is the best, according to the rating criteria.")
-    candidate_rating_reasoning: str | None = Field(description = "The reasoning behind the rating of the candidate, this should be detailed and explain why the candidate was rated as they were.")
+    candidate_rating: Literal[1, 2, 3, 4, 5] | None = Field(
+        description="The rating of the candidate, from 1 to 5, where 1 is the worst and 5 is the best, according to the rating criteria."
+    )
+    candidate_rating_reasoning: str | None = Field(
+        description="The reasoning behind the rating of the candidate, this should be detailed and explain why the candidate was rated as they were."
+    )
+
 
 ARXIV_CLIENT = arxiv.Client()
 
@@ -114,11 +130,13 @@ def get_authors_from_arxiv_ids(
             authors.append(author)
 
     return authors
+
+
 def arxiv_id_from_url(url: str) -> str:
     return re.search(r"arxiv\.org/pdf/(\d+\.\d+)", url).group(1)
 
-DEFAULT_SYSTEM_MESSAGE = """
-You are a helpful assistant attempting to submit the correct answer. You have
+
+DEFAULT_SYSTEM_MESSAGE = """You are a helpful assistant attempting to submit the correct answer. You have
 several functions available to help with finding the answer. Each message
 may perform one function call. You will see the result of the function right
 after sending the message. If you need to perform multiple actions, you can
@@ -155,6 +173,7 @@ Try your best to fill the in the formation, by searching the web and using your 
 def get_candidate_info_tools() -> list[Tool]:
     """Get the tools for the candidate info agent."""
     return [web_search(provider="tavily")] + web_browser()
+
 
 @solver
 def candidate_info_agent(
@@ -227,7 +246,9 @@ def candidate_info_agent(
     @solver
     def submit_tool() -> Solver:
         async def solve(state: TaskState, generate: Generate) -> TaskState:
-            state.tools.append(tool_with(submit(), "submit", "Submit an answer for evaluation"))
+            state.tools.append(
+                tool_with(submit(), "submit", "Submit an answer for evaluation")
+            )
             return state
 
         return solve
@@ -238,8 +259,7 @@ def candidate_info_agent(
             (
                 result.text
                 for result in tool_results
-                if isinstance(result, ChatMessageTool)
-                and result.function == "submit"
+                if isinstance(result, ChatMessageTool) and result.function == "submit"
             ),
             None,
         )
@@ -299,14 +319,24 @@ def candidate_info_agent(
                                 break
 
                             # exit if the submission is successful
-                            answer_score = await score_pydantic_model(Candidate)(state, Target(""))
+                            answer_score = await score_pydantic_model(Candidate)(
+                                state, Target("")
+                            )
                             if answer_score.value == 1.0:
                                 break
                             # otherwise notify the model that it was incorrect and continue
                             else:
-                                validation_error = answer_score.metadata["validation_error"] # type: ignore[index]
+                                validation_error = answer_score.metadata[
+                                    "validation_error"
+                                ]  # type: ignore[index]
                                 assert isinstance(validation_error, ValidationError)
-                                state.messages.append(ChatMessageUser(content="Your submission was not able to be correctly parsed. The error was:\n\n" + str(validation_error) + "\n\n Please replace it and try again."))
+                                state.messages.append(
+                                    ChatMessageUser(
+                                        content="Your submission was not able to be correctly parsed. The error was:\n\n"
+                                        + str(validation_error)
+                                        + "\n\n Please replace it and try again."
+                                    )
+                                )
                     # no tool calls, urge the model to continue
                     else:
                         state.messages.append(ChatMessageUser(content=continue_message))
@@ -323,34 +353,36 @@ def candidate_info_agent(
         basic_agent_loop(),
     )
 
+
 class PydanticScorerMetadata(TypedDict):
-    candidate_info: dict[str,Any] | None # Is a dictonary corresponding the the JSON of the Candidate BaseModel
+    candidate_info: (
+        dict[str, Any] | None
+    )  # Is a dictonary corresponding the the JSON of the Candidate BaseModel
     validation_error: ValidationError | None
 
 
-def score_pydantic_model( pydantic_model: type[BaseModel]) -> Scorer:
+def score_pydantic_model(pydantic_model: type[BaseModel]) -> Scorer:
     """Score a pydantic model against a target pydantic model."""
 
-
     async def score_pydantic_model(state: TaskState, target: Target) -> Score:
-
         # First, try to score the JSON string in state.output.completion
         try:
-            parsed_model = pydantic_model.model_validate_json(state.output.completion).model_dump()
+            parsed_model = pydantic_model.model_validate_json(
+                state.output.completion
+            ).model_dump()
             validation_error = None
             score = 1.0
         except ValidationError as e:
             parsed_model = None
             validation_error = e
             score = 0.0
-        
+
         metadata = PydanticScorerMetadata(
-            candidate_info=parsed_model,
-            validation_error=validation_error
+            candidate_info=parsed_model, validation_error=validation_error
         )
 
-        return Score(value=score, metadata=metadata) # type: ignore[arg-type]
-    
+        return Score(value=score, metadata=metadata)  # type: ignore[arg-type]
+
     return score_pydantic_model
 
 
@@ -358,8 +390,8 @@ def score_pydantic_model( pydantic_model: type[BaseModel]) -> Scorer:
 def source_authors(
     arxiv_ids: list[str],
     maximum_authors: int | None = None,
-    search_agent_guidance: str  = DEFAULT_INPUT_PROMPT,
-    rater_agent_guidance: str = DEFAULT_RATER_GUIDANCE
+    search_agent_guidance: str = DEFAULT_INPUT_PROMPT,
+    rater_agent_guidance: str = DEFAULT_RATER_GUIDANCE,
 ) -> Task:
     """
     Inspect Task definition for the sourcing task. Returns a task where each Sample is a single author,
@@ -388,7 +420,7 @@ def source_authors(
                 paper_title=author.paper_title,
                 paper_url=author.paper_url,
                 paper_abstract=author.paper_abstract,
-                model_json_schema=input_json_schema
+                model_json_schema=input_json_schema,
             ),
             # We'll add the basic author info to metadata
             metadata={
