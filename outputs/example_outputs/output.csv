@@ -1,0 +1,223 @@
+name,paper_id,paper_title,paper_abstract,paper_url,paper_pdf,current_role,organization,location,personal_website,linkedin_url,scholar_url,summary,problem_level_while_soucing,problems_while_sourcing,candidate_rating,candidate_rating_reasoning,log_location,validation_error
+Shuyu Jiang,2310.10077v1,Prompt Packer: Deceiving LLMs through Compositional Instruction with Hidden Attacks,"Recently, Large language models (LLMs) with powerful general capabilities
+have been increasingly integrated into various Web applications, while
+undergoing alignment training to ensure that the generated content aligns with
+user intent and ethics. Unfortunately, they remain the risk of generating
+harmful content like hate speech and criminal activities in practical
+applications. Current approaches primarily rely on detecting, collecting, and
+training against harmful prompts to prevent such risks. However, they typically
+focused on the ""superficial"" harmful prompts with a solitary intent, ignoring
+composite attack instructions with multiple intentions that can easily elicit
+harmful content in real-world scenarios. In this paper, we introduce an
+innovative technique for obfuscating harmful instructions: Compositional
+Instruction Attacks (CIA), which refers to attacking by combination and
+encapsulation of multiple instructions. CIA hides harmful prompts within
+instructions of harmless intentions, making it impossible for the model to
+identify underlying malicious intentions. Furthermore, we implement two
+transformation methods, known as T-CIA and W-CIA, to automatically disguise
+harmful instructions as talking or writing tasks, making them appear harmless
+to LLMs. We evaluated CIA on GPT-4, ChatGPT, and ChatGLM2 with two safety
+assessment datasets and two harmful prompt datasets. It achieves an attack
+success rate of 95%+ on safety assessment datasets, and 83%+ for GPT-4, 91%+
+for ChatGPT (gpt-3.5-turbo backed) and ChatGLM2-6B on harmful prompt datasets.
+Our approach reveals the vulnerability of LLMs to such compositional
+instruction attacks that harbor underlying harmful intentions, contributing
+significantly to LLM security development. Warning: this paper may contain
+offensive or upsetting content!",http://arxiv.org/abs/2310.10077v1,,PhD Student,"School of Cyber Science and Engineering, Sichuan University","Chengdu, China",,,https://scholar.google.com/citations?user=rDnyrWEAAAAJ,"Shuyu Jiang is a PhD student at the School of Cyber Science and Engineering, Sichuan University, who began her academic journey with a B.E. degree from the same university in 2019. Her research focuses on natural language generation, social network analysis, and more recently, large language model security. She has published multiple papers on AI safety topics, particularly exploring vulnerabilities in LLMs through techniques like compositional instruction attacks. Her work 'Prompt Packer: Deceiving LLMs through Compositional Instruction with Hidden Attacks' and other publications demonstrate her expertise in identifying and addressing security concerns in AI systems. With over 200 citations to her work, she is establishing herself as a contributor in the field of AI safety and security.",2,"While I was able to find Shuyu Jiang's Google Scholar profile and comprehensive publication list, I could not locate her personal website or LinkedIn profile. Information about her specific role beyond being a PhD student was also limited, making it difficult to determine her exact career stage or industrial experience.",3,"Shuyu Jiang demonstrates clear expertise in AI safety research, with multiple publications focused on LLM vulnerabilities and security. Her paper 'Prompt Packer: Deceiving LLMs through Compositional Instruction with Hidden Attacks' has gained significant attention (27 citations) and addresses important safety concerns in large language models. She has published in reputable venues and has collaborated with other researchers in the field. However, she appears to still be in her PhD program rather than having completed it, and there's no evidence of work experience at frontier AI labs. Her research is primarily academic and based at Sichuan University. While she has established a track record in AI safety publications with several papers on LLM security (including 'Decomposition, Synthesis and Attack: A Multi-Instruction Fusion Method for Jailbreaking LLMs'), she has not yet reached the later stages of her PhD or gained industry experience at major AI organizations. Her specialized knowledge in adversarial attacks against LLMs would be valuable to the AI Safety Institute, but she would benefit from more experience or completing her PhD before being an ideal candidate.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,
+Xingshu Chen,2310.10077v1,Prompt Packer: Deceiving LLMs through Compositional Instruction with Hidden Attacks,"Recently, Large language models (LLMs) with powerful general capabilities
+have been increasingly integrated into various Web applications, while
+undergoing alignment training to ensure that the generated content aligns with
+user intent and ethics. Unfortunately, they remain the risk of generating
+harmful content like hate speech and criminal activities in practical
+applications. Current approaches primarily rely on detecting, collecting, and
+training against harmful prompts to prevent such risks. However, they typically
+focused on the ""superficial"" harmful prompts with a solitary intent, ignoring
+composite attack instructions with multiple intentions that can easily elicit
+harmful content in real-world scenarios. In this paper, we introduce an
+innovative technique for obfuscating harmful instructions: Compositional
+Instruction Attacks (CIA), which refers to attacking by combination and
+encapsulation of multiple instructions. CIA hides harmful prompts within
+instructions of harmless intentions, making it impossible for the model to
+identify underlying malicious intentions. Furthermore, we implement two
+transformation methods, known as T-CIA and W-CIA, to automatically disguise
+harmful instructions as talking or writing tasks, making them appear harmless
+to LLMs. We evaluated CIA on GPT-4, ChatGPT, and ChatGLM2 with two safety
+assessment datasets and two harmful prompt datasets. It achieves an attack
+success rate of 95%+ on safety assessment datasets, and 83%+ for GPT-4, 91%+
+for ChatGPT (gpt-3.5-turbo backed) and ChatGLM2-6B on harmful prompt datasets.
+Our approach reveals the vulnerability of LLMs to such compositional
+instruction attacks that harbor underlying harmful intentions, contributing
+significantly to LLM security development. Warning: this paper may contain
+offensive or upsetting content!",http://arxiv.org/abs/2310.10077v1,,Professor of Computer Science,Sichuan University,China,http://csri.scu.edu.cn/,,https://scholar.google.com/citations?user=6tGPLvEAAAAJ,"Xingshu Chen is a Full Professor and Doctoral Supervisor at Sichuan University in China, where she also received her Ph.D. in 2004. She is affiliated with the School of Cyber Science and Engineering and the Cyber Science Research Institute. Her research spans cybersecurity, network security, cloud computing, big data analysis, and artificial intelligence security. Recently, her work has focused on adversarial machine learning and large language model security. She has published extensively with over 1,500 citations, with recent publications addressing AI security vulnerabilities, including work on deceiving LLMs through compositional instruction attacks.",3,"The primary challenge was that much of the information about the candidate is in Chinese, including their personal website. Additionally, there was some gender confusion in the search results, with some sources referring to the candidate as 'he' and others as 'she' (though most authoritative sources indicate female). It was also difficult to determine precisely how long the candidate has been in their current role and their complete educational background beyond their PhD from Sichuan University in 2004.",3,"Xingshu Chen demonstrates significant expertise in cybersecurity and has recently published work directly relevant to AI safety, particularly in the field of adversarial attacks on large language models. The paper 'Prompt Packer: Deceiving LLMs through Compositional Instruction with Hidden Attacks' shows direct experience with LLM security research. She has a strong publication record with over 1,500 citations and an h-index of 21, indicating scholarly impact. However, there are several limitations for the UK AI Safety Institute position: (1) Most of her career has been at Sichuan University without apparent experience at frontier AI labs; (2) While she has recent publications on LLM security, her broader research history is focused on traditional cybersecurity rather than a long-standing focus on AI safety specifically; (3) There's no evidence of significant international collaboration or experience working in UK/Western research environments; (4) While she's a senior academic with extensive experience, her work might be more oriented toward cybersecurity applications than fundamental AI safety research. Her strengths in adversarial ML and LLM security would be valuable, but the candidate's profile suggests she may be better suited for advisory roles rather than direct research positions at the UK AI Safety Institute.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,
+Yi Liu,2306.05499v2,Prompt Injection attack against LLM-integrated Applications,"Large Language Models (LLMs), renowned for their superior proficiency in
+language comprehension and generation, stimulate a vibrant ecosystem of
+applications around them. However, their extensive assimilation into various
+services introduces significant security risks. This study deconstructs the
+complexities and implications of prompt injection attacks on actual
+LLM-integrated applications. Initially, we conduct an exploratory analysis on
+ten commercial applications, highlighting the constraints of current attack
+strategies in practice. Prompted by these limitations, we subsequently
+formulate HouYi, a novel black-box prompt injection attack technique, which
+draws inspiration from traditional web injection attacks. HouYi is
+compartmentalized into three crucial elements: a seamlessly-incorporated
+pre-constructed prompt, an injection prompt inducing context partition, and a
+malicious payload designed to fulfill the attack objectives. Leveraging HouYi,
+we unveil previously unknown and severe attack outcomes, such as unrestricted
+arbitrary LLM usage and uncomplicated application prompt theft. We deploy HouYi
+on 36 actual LLM-integrated applications and discern 31 applications
+susceptible to prompt injection. 10 vendors have validated our discoveries,
+including Notion, which has the potential to impact millions of users. Our
+investigation illuminates both the possible risks of prompt injection attacks
+and the possible tactics for mitigation.",http://arxiv.org/abs/2306.05499v2,,PhD Student,"Department of Computer Science, City University of Hong Kong",Hong Kong,https://yiliucs.github.io,,https://scholar.google.com/citations?user=RNNNv7QAAAAJ&hl=en,"Yi Liu is a PhD student in Computer Science at City University of Hong Kong, advised by Prof. Cong Wang and Prof. Xingliang Yuan. His research focuses on privacy and security, particularly in AI security, federated learning, and machine unlearning. He has published extensively in top-tier conferences and journals, with recent work on prompt injection attacks against LLM-integrated applications. Liu has received several accolades, including a Top Reviewer award at NeurIPS 2023 and the IEEE Communications Society Outstanding Paper Award. He previously interned at Tencent Jarvis Lab and completed his undergraduate degree at Heilongjiang University in China.",2,"Initially encountered some confusion due to multiple researchers named Yi Liu in similar fields. However, was able to locate the candidate's personal website and Google Scholar profile which provided comprehensive information about their background and research focus.",4,"Yi Liu demonstrates strong credentials for the UK's AI Safety Institute position. His rating of 4 is justified by several factors: First, he has an established track record in AI security research, with his recent work on prompt injection attacks against LLM-integrated applications directly relevant to AI safety. Second, he is currently pursuing a PhD at City University of Hong Kong, supervised by established professors in security and privacy, indicating he is receiving rigorous academic training. Third, his publications have received significant recognition, with thousands of citations and awards like the IEEE Communications Society Outstanding Paper Award, demonstrating research impact. Fourth, he has practical industry experience through an internship at Tencent Jarvis Lab, showing exposure to real-world AI systems. His expertise in adversarial attacks on LLMs, particularly the development of the HouYi framework for testing prompt injection vulnerabilities, aligns perfectly with the institute's focus on AI safety and adversarial ML. The only factor preventing a perfect score is that he is still completing his PhD rather than having finished it, and lacks experience at frontier AI labs like DeepMind, Anthropic, or OpenAI. However, his specialized work on LLM security makes him a very strong candidate overall.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,
+Gelei Deng,2306.05499v2,Prompt Injection attack against LLM-integrated Applications,"Large Language Models (LLMs), renowned for their superior proficiency in
+language comprehension and generation, stimulate a vibrant ecosystem of
+applications around them. However, their extensive assimilation into various
+services introduces significant security risks. This study deconstructs the
+complexities and implications of prompt injection attacks on actual
+LLM-integrated applications. Initially, we conduct an exploratory analysis on
+ten commercial applications, highlighting the constraints of current attack
+strategies in practice. Prompted by these limitations, we subsequently
+formulate HouYi, a novel black-box prompt injection attack technique, which
+draws inspiration from traditional web injection attacks. HouYi is
+compartmentalized into three crucial elements: a seamlessly-incorporated
+pre-constructed prompt, an injection prompt inducing context partition, and a
+malicious payload designed to fulfill the attack objectives. Leveraging HouYi,
+we unveil previously unknown and severe attack outcomes, such as unrestricted
+arbitrary LLM usage and uncomplicated application prompt theft. We deploy HouYi
+on 36 actual LLM-integrated applications and discern 31 applications
+susceptible to prompt injection. 10 vendors have validated our discoveries,
+including Notion, which has the potential to impact millions of users. Our
+investigation illuminates both the possible risks of prompt injection attacks
+and the possible tactics for mitigation.",http://arxiv.org/abs/2306.05499v2,,Chief AI Officer at Ridge Security and AI Research Lead at Quantstamp,Ridge Security and Quantstamp,Singapore,https://geleideng.github.io,Not found due to login restrictions,https://scholar.google.com/citations?user=NuzUkMEAAAAJ,"Gelei Deng is a highly accomplished researcher in AI security and cybersecurity who recently completed his Ph.D. in computer science at Nanyang Technological University. He currently serves as the Chief AI Officer at Ridge Security and leads AI research at Quantstamp as an AI engineer and blockchain security auditor. He is also a member of the OpenAI Red Team, contributing to projects like GPT-4o and Operator. His research focuses on AI safety, with particular expertise in jailbreaking and prompt injection attacks against large language models. Deng has published numerous high-impact papers on AI security, including pioneering work on automated jailbreaking techniques (MASTERKEY), prompt injection attacks (HouYi), and LLM-empowered penetration testing (PentestGPT). His work has been recognized with awards including a Distinguished Artifact Award at the 33rd USENIX Security Symposium, and his publications have garnered over 2,000 citations, demonstrating his significant influence in the field.",2,"Unable to access LinkedIn profile due to login restrictions, and the personal website used a template with minimal personalized information filled in. However, there was abundant information available through web searches and Google Scholar about his academic work and current roles.",5,"Gelei Deng is an exceptional candidate for the UK's AI Safety Institute based on several key factors: 1) He has a strong academic background with a completed Ph.D. in computer science from Nanyang Technological University with a focus on security; 2) He has established himself as a leading researcher in AI safety with multiple high-impact publications specifically focusing on LLM security, jailbreaking, and prompt injection (the paper mentioned in the request is one of his significant contributions); 3) He has practical industry experience through his roles at Ridge Security and Quantstamp, where he leads AI research efforts; 4) He is a member of the OpenAI Red Team, indicating his recognition by one of the frontier AI labs as an expert in identifying and mitigating AI risks; 5) His work on projects like PentestGPT, MASTERKEY, and HouYi demonstrates both technical expertise and a focus on addressing crucial AI safety challenges; 6) The impact of his research is evidenced by over 2,000 citations and recognition through awards like the Distinguished Artifact Award at USENIX Security 2024; 7) His multidisciplinary expertise spanning AI, cybersecurity, and blockchain security provides a unique perspective valuable for addressing complex AI safety challenges. His extensive research on adversarial attacks against LLMs positions him as a top-tier candidate with both the academic credentials and practical experience needed to contribute significantly to the UK's AI Safety Institute.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,
+Sam Toyer,2311.01011v1,Tensor Trust: Interpretable Prompt Injection Attacks from an Online Game,"While Large Language Models (LLMs) are increasingly being used in real-world
+applications, they remain vulnerable to prompt injection attacks: malicious
+third party prompts that subvert the intent of the system designer. To help
+researchers study this problem, we present a dataset of over 126,000 prompt
+injection attacks and 46,000 prompt-based ""defenses"" against prompt injection,
+all created by players of an online game called Tensor Trust. To the best of
+our knowledge, this is currently the largest dataset of human-generated
+adversarial examples for instruction-following LLMs. The attacks in our dataset
+have a lot of easily interpretable stucture, and shed light on the weaknesses
+of LLMs. We also use the dataset to create a benchmark for resistance to two
+types of prompt injection, which we refer to as prompt extraction and prompt
+hijacking. Our benchmark results show that many models are vulnerable to the
+attack strategies in the Tensor Trust dataset. Furthermore, we show that some
+attack strategies from the dataset generalize to deployed LLM-based
+applications, even though they have a very different set of constraints to the
+game. We release all data and source code at https://tensortrust.ai/paper",http://arxiv.org/abs/2311.01011v1,,"Member of Technical Staff, Model Safety Team",OpenAI,United States (San Francisco),https://www.qxcv.net/,https://www.linkedin.com/in/sam-toyer/,https://scholar.google.com.au/citations?user=J8E8GQYAAAAJ&hl=en,"Sam Toyer is currently a Member of Technical Staff on the Model Safety Team at OpenAI, having recently completed his PhD in Machine Learning at UC Berkeley (2018-2024) under Stuart Russell's supervision. His research focuses on making AI systems more robust and trustworthy, with particular emphasis on large language model safety, prompt injection attacks, and adversarial ML. Toyer has published papers in top AI conferences including ICLR, NeurIPS, and AAAI, and has over 1,400 citations. His work spans value learning, planning, imitation learning, and most recently AI safety with a focus on LLM security. Prior to his PhD, he completed his undergraduate degree at the Australian National University.",2,"While sourcing information about Sam Toyer, I encountered some minor difficulties. I wasn't able to access his CV directly as it was a downloadable PDF, and LinkedIn required login credentials to view his full profile. However, I was able to find sufficient information through his personal website, Google Scholar profile, and web searches to compile a comprehensive overview of his background and research focus.",5,"Sam Toyer deserves a rating of 5 (excellent candidate) for several compelling reasons:
+
+1. Strong AI Safety Focus: His recent work, particularly the Tensor Trust paper on prompt injection attacks, demonstrates a clear dedication to AI safety research. This paper was published at ICLR 2024 (spotlight paper), one of the top ML conferences, indicating high-quality research in adversarial ML.
+
+2. Frontier AI Lab Experience: He currently works at OpenAI on their Model Safety Team as a Member of Technical Staff, giving him direct experience with frontier AI systems and their safety challenges.
+
+3. Strong Academic Background: He completed his PhD at UC Berkeley under Stuart Russell, a renowned AI safety researcher. This indicates high-quality training in AI research with a safety focus.
+
+4. Publication Track Record: He has published multiple papers at top-tier ML conferences (ICLR, NeurIPS, AAAI) with over 1,400 citations, demonstrating research impact.
+
+5. Research Breadth and Depth: Beyond just safety work, he has expertise in planning, imitation learning, and value learning - all relevant areas for AI alignment and safety.
+
+6. Recent Focus on LLM Safety: His most recent work focuses specifically on LLM security and prompt injection vulnerabilities, highly relevant to the UK AI Safety Institute's mission.
+
+7. Collaboration Network: He has collaborated with prominent researchers at Berkeley, OpenAI, and other institutions, indicating he is well-connected in the AI safety community.
+
+Overall, Toyer's combination of frontier AI lab experience, advanced academic credentials, publication record, and specific expertise in AI safety makes him an exceptional candidate for the UK's AI Safety Institute.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,
+Olivia Watkins,2311.01011v1,Tensor Trust: Interpretable Prompt Injection Attacks from an Online Game,"While Large Language Models (LLMs) are increasingly being used in real-world
+applications, they remain vulnerable to prompt injection attacks: malicious
+third party prompts that subvert the intent of the system designer. To help
+researchers study this problem, we present a dataset of over 126,000 prompt
+injection attacks and 46,000 prompt-based ""defenses"" against prompt injection,
+all created by players of an online game called Tensor Trust. To the best of
+our knowledge, this is currently the largest dataset of human-generated
+adversarial examples for instruction-following LLMs. The attacks in our dataset
+have a lot of easily interpretable stucture, and shed light on the weaknesses
+of LLMs. We also use the dataset to create a benchmark for resistance to two
+types of prompt injection, which we refer to as prompt extraction and prompt
+hijacking. Our benchmark results show that many models are vulnerable to the
+attack strategies in the Tensor Trust dataset. Furthermore, we show that some
+attack strategies from the dataset generalize to deployed LLM-based
+applications, even though they have a very different set of constraints to the
+game. We release all data and source code at https://tensortrust.ai/paper",http://arxiv.org/abs/2311.01011v1,,"Researcher at OpenAI, Preparedness Team",OpenAI,United States,https://aliengirlliv.github.io/oliviawatkins/,,https://scholar.google.com/citations?user=Rd18rbYAAAAJ,"Olivia Watkins is a researcher at OpenAI's Preparedness Team, where she focuses on evaluating and forecasting catastrophic risks associated with frontier AI models. She specializes in designing cybersecurity evaluations to understand AI's impact on the future of cybersecurity. She completed her PhD at UC Berkeley in Electrical Engineering & Computer Sciences, specializing in Artificial Intelligence, where she worked with prominent advisors like Pieter Abbeel and Trevor Darrell. Her research expertise spans reinforcement learning, imitation learning, computer vision, deep learning, and AI safety topics including adversarial robustness and prompt injection attacks in large language models. With over 2,199 citations to her work and significant publications at top ML conferences like ICML and NeurIPS, she has established herself as a prominent researcher in AI safety and security.",2,"While I was able to find substantial information about Olivia Watkins through her Google Scholar profile and personal website, I was unable to locate her LinkedIn profile, which might have provided more details about her professional experience timeline. Additionally, specific details about her previous roles and exact location were not directly confirmed.",5,"Olivia Watkins ranks as a 5/5 candidate for the UK's AI Safety Institute for several compelling reasons:
+
+1. She has a strong track record in AI safety research, evidenced by her recent work on prompt injection attacks (Tensor Trust) which has already accumulated 90 citations despite being published in late 2023. This paper directly addresses security vulnerabilities in LLMs, which is directly relevant to the Institute's focus.
+
+2. She has also co-authored 'A strongreject for empty jailbreaks' (2024) and other security-focused AI papers, demonstrating sustained interest in adversarial ML and AI safety.
+
+3. She currently works at OpenAI's Preparedness Team, which is specifically focused on evaluating catastrophic risks from frontier AI models - perfectly aligned with the Institute's mission.
+
+4. She has completed her PhD at UC Berkeley working with top AI researchers (Pieter Abbeel and Trevor Darrell), giving her strong academic credentials.
+
+5. Her publication record is exceptional, with multiple papers at top ML conferences (ICML, NeurIPS) that have collectively garnered over 2,199 citations, demonstrating both research quality and impact.
+
+6. Her experience at a leading frontier AI lab (OpenAI) means she has direct experience with advanced AI systems and their potential risks.
+
+7. Her specific focus on cybersecurity evaluations for AI models shows she's already working in a domain highly relevant to the Institute's mission of ensuring AI safety.
+
+In summary, Olivia Watkins has both the academic credentials (completed PhD, publications at top conferences) and the practical experience at a frontier AI lab (OpenAI) with a specific focus on AI safety and security issues, making her an ideal candidate for the UK's AI Safety Institute.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,
+Jiahao Yu,2311.11538v2,Assessing Prompt Injection Risks in 200+ Custom GPTs,"In the rapidly evolving landscape of artificial intelligence, ChatGPT has
+been widely used in various applications. The new feature - customization of
+ChatGPT models by users to cater to specific needs has opened new frontiers in
+AI utility. However, this study reveals a significant security vulnerability
+inherent in these user-customized GPTs: prompt injection attacks. Through
+comprehensive testing of over 200 user-designed GPT models via adversarial
+prompts, we demonstrate that these systems are susceptible to prompt
+injections. Through prompt injection, an adversary can not only extract the
+customized system prompts but also access the uploaded files. This paper
+provides a first-hand analysis of the prompt injection, alongside the
+evaluation of the possible mitigation of such attacks. Our findings underscore
+the urgent need for robust security frameworks in the design and deployment of
+customizable GPT models. The intent of this paper is to raise awareness and
+prompt action in the AI community, ensuring that the benefits of GPT
+customization do not come at the cost of compromised security and privacy.",http://arxiv.org/abs/2311.11538v2,,PhD student in Computer Science,Northwestern University,United States,https://sherdencooper.github.io/,,https://scholar.google.com/citations?user=mB4eowUAAAAJ,"Jiahao Yu is a fourth-year Computer Science PhD student at Northwestern University, working under Professor Xinyu Xing. His research focuses on reinforcement learning and secure machine learning, with significant emphasis on AI safety, particularly in the areas of prompt injection vulnerabilities, LLM jailbreaking, and red teaming for large language models. He has published extensively in top-tier venues including USENIX Security, NeurIPS, and ICML. His work on GPTFuzzer and prompt injection has received recognition and media coverage from outlets like WIRED. Prior to his PhD, he completed his Bachelor's degree at Shanghai Jiao Tong University in 2021 and had an internship at Microsoft Research Asia working on adversarial attacks against machine learning models.",1,"No significant problems were encountered during sourcing. The candidate has a clear online presence with a personal website and Google Scholar profile, which provided comprehensive information about his research, education, and experience.",5,"Jiahao Yu merits a rating of 5 (excellent) for several compelling reasons. First, he has established a strong track record in AI safety research, with multiple publications focused on identifying and addressing security vulnerabilities in large language models. His work on prompt injection risks in custom GPTs, as specified in the reference paper, has been cited 71 times and was presented at the ICLR 2024 Workshop on Secure and Trustworthy Large Language Models. He has also published other related work on LLM security, including GPTFuzzer (cited 321 times) and LLM-Fuzzer for assessing jailbreaks, which was accepted at the prestigious USENIX Security Symposium. Second, Yu is currently in his fourth year of PhD studies at Northwestern University, which indicates he is towards the end of his doctoral program and has substantial research experience. His publication record shows consistent contributions since 2020, with papers appearing in top-tier venues such as NeurIPS, ICML, and USENIX Security. Third, he has experience in applied AI security research through an internship at Microsoft Research Asia, working on adversarial attacks against machine learning models. His strong citation metrics (over 590 citations) demonstrate that his work has substantial impact in the field. Overall, Yu's specific focus on AI safety, particularly on vulnerabilities in large language models, combined with his academic credentials and publication record, makes him an excellent candidate for the UK's AI Safety Institute.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,
+Yuhang Wu,2311.11538v2,Assessing Prompt Injection Risks in 200+ Custom GPTs,"In the rapidly evolving landscape of artificial intelligence, ChatGPT has
+been widely used in various applications. The new feature - customization of
+ChatGPT models by users to cater to specific needs has opened new frontiers in
+AI utility. However, this study reveals a significant security vulnerability
+inherent in these user-customized GPTs: prompt injection attacks. Through
+comprehensive testing of over 200 user-designed GPT models via adversarial
+prompts, we demonstrate that these systems are susceptible to prompt
+injections. Through prompt injection, an adversary can not only extract the
+customized system prompts but also access the uploaded files. This paper
+provides a first-hand analysis of the prompt injection, alongside the
+evaluation of the possible mitigation of such attacks. Our findings underscore
+the urgent need for robust security frameworks in the design and deployment of
+customizable GPT models. The intent of this paper is to raise awareness and
+prompt action in the AI community, ensuring that the benefits of GPT
+customization do not come at the cost of compromised security and privacy.",http://arxiv.org/abs/2311.11538v2,,PhD Student,Northwestern University,United States,https://wupco.github.io,,https://scholar.google.com/citations?user=wupco,"Yuhang Wu is a PhD student at Northwestern University, advised by Dr. Xinyu Xing, specializing in network and system security. His research interests include software security, system security, and more recently, AI security with a focus on large language models. He has publications in top-tier security conferences including USENIX Security, IEEE S&P (Security & Privacy), and CCS. Recently, he has been working on AI safety concerns, co-authoring research on prompt injection vulnerabilities in custom GPT models. His paper 'Assessing Prompt Injection Risks in 200+ Custom GPTs' was accepted to the ICLR 2024 Workshop on Secure and Trustworthy Large Language Models.",2,"I was able to find his personal website and information about his publications, but couldn't locate his complete LinkedIn profile or a direct link to his Google Scholar profile. Also, there was limited information about his industry experience or internships at frontier AI labs.",3,"Yuhang Wu shows promising potential as a candidate for the UK's AI Safety Institute, but with some limitations. Strengths: (1) He has recently pivoted to AI safety research with a focus on security vulnerabilities in LLMs, specifically prompt injection attacks, which is directly relevant to the Institute's mission; (2) He has published in prestigious security conferences (USENIX Security, IEEE S&P, CCS), demonstrating research competence; (3) His recent paper on custom GPT vulnerabilities shows a timely focus on emerging AI safety issues. Limitations: (1) While he has begun publishing in AI safety (specifically prompt injection), his track record in this area is still developing with just one major paper identified; (2) Most of his previous research focuses on traditional system/kernel security rather than machine learning or AI safety; (3) I found no evidence of work experience at frontier AI labs like OpenAI, Anthropic, or DeepMind; (4) He appears to be in the early stages of his PhD rather than nearing completion. While his security expertise and recent pivot to AI safety research are valuable, his relatively limited publication record specifically in ML/AI safety and early career stage prevent a higher rating.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,
+Erik Derner,2311.11415v2,A Security Risk Taxonomy for Prompt-Based Interaction With Large Language Models,"As large language models (LLMs) permeate more and more applications, an
+assessment of their associated security risks becomes increasingly necessary.
+The potential for exploitation by malicious actors, ranging from disinformation
+to data breaches and reputation damage, is substantial. This paper addresses a
+gap in current research by specifically focusing on security risks posed by
+LLMs within the prompt-based interaction scheme, which extends beyond the
+widely covered ethical and societal implications. Our work proposes a taxonomy
+of security risks along the user-model communication pipeline and categorizes
+the attacks by target and attack type alongside the commonly used
+confidentiality, integrity, and availability (CIA) triad. The taxonomy is
+reinforced with specific attack examples to showcase the real-world impact of
+these risks. Through this taxonomy, we aim to inform the development of robust
+and secure LLM applications, enhancing their safety and trustworthiness.",http://arxiv.org/abs/2311.11415v2,,ELLIS Postdoctoral Researcher,"ELLIS Unit Alicante / Czech Institute of Informatics, Robotics, and Cybernetics (CIIRC)",Spain/Czech Republic,http://people.ciirc.cvut.cz/~derneeri/,https://www.linkedin.com/in/erik-derner,https://scholar.google.com/citations?user=39FtM54AAAAJ,"Erik Derner is an ELLIS Postdoctoral Researcher with a focus on AI safety, security, and ethical aspects of generative AI systems, particularly large language models. He completed his PhD in Robotics and Artificial Intelligence from the Czech Technical University in Prague in 2022, winning the Werner von Siemens Award and CTU FEE Dean's Award for his dissertation. His current work at ELLIS Alicante involves human-centric AI research in Dr. Nuria Oliver's team, focusing on developing aligned, fair, safe, and secure language models. He also collaborates with the Machine Learning team at the Czech Institute of Informatics, Robotics, and Cybernetics. His research interests include AI safety, security, LLMs, robotics, computer vision, reinforcement learning, and genetic algorithms.",2,"LinkedIn profile required login to view full details. However, I was able to find comprehensive information from his personal website, Google Scholar profile, and web searches. The author has a clear online presence with accessible information about his background and research.",4,"Erik Derner merits a rating of 4 based on several key factors:
+
+1. Clear track record in ML and AI safety research: He has published multiple papers specifically focused on AI safety and security of large language models, including ""Beyond the Safeguards: Exploring the Security Risks of ChatGPT"" (2023) with 99 citations and ""A Security Risk Taxonomy for Prompt-Based Interaction with Large Language Models"" (2024) with 26 citations. These papers demonstrate his commitment to the field of AI safety.
+
+2. Advanced academic credentials: He completed his PhD in Robotics and AI in 2022 from Czech Technical University in Prague, with his dissertation receiving prestigious awards, indicating high-quality research.
+
+3. Institutional affiliations: His current postdoctoral position at ELLIS Alicante (a prestigious European AI research network) and collaboration with the Czech Institute of Informatics, Robotics, and Cybernetics shows he's working within strong research environments.
+
+4. Publication impact: His Google Scholar profile shows over 730 citations, with an h-index of 15, demonstrating the impact of his research in the field.
+
+5. Specific focus on LLM safety and security: His recent research focus has been directly on the security risks of large language models, including taxonomy development for security risks in prompt-based interactions with LLMs, which aligns well with the interests of the UK's AI Safety Institute.
+
+The reason he doesn't receive a 5 is that while he has excellent research credentials and a growing focus on AI safety, he hasn't yet worked at a frontier AI lab like DeepMind, Anthropic, or OpenAI, which would demonstrate industry experience with cutting-edge AI development. Nevertheless, his academic background, publication record, and current research focus make him a strong candidate.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,
+Kristina Batistič,2311.11415v2,A Security Risk Taxonomy for Prompt-Based Interaction With Large Language Models,"As large language models (LLMs) permeate more and more applications, an
+assessment of their associated security risks becomes increasingly necessary.
+The potential for exploitation by malicious actors, ranging from disinformation
+to data breaches and reputation damage, is substantial. This paper addresses a
+gap in current research by specifically focusing on security risks posed by
+LLMs within the prompt-based interaction scheme, which extends beyond the
+widely covered ethical and societal implications. Our work proposes a taxonomy
+of security risks along the user-model communication pipeline and categorizes
+the attacks by target and attack type alongside the commonly used
+confidentiality, integrity, and availability (CIA) triad. The taxonomy is
+reinforced with specific attack examples to showcase the real-world impact of
+these risks. Through this taxonomy, we aim to inform the development of robust
+and secure LLM applications, enhancing their safety and trustworthiness.",http://arxiv.org/abs/2311.11415v2,,Cyber Security Consultant,NIL Ltd.,Slovenia,,https://www.linkedin.com/in/kristina-batistic/,,"Kristina Batistič is a Cyber Security Consultant at NIL Ltd. with a strong academic background in computer science and cybersecurity. She holds a B.Sc. in Computer and Information Science from the University of Ljubljana and a double master's degree in cybersecurity from the Technical University of Denmark (DTU) and KTH Royal Institute of Technology in Sweden. Her research focuses on AI safety and security, particularly regarding large language models. She has collaborated with institutions like CIIRC CTU in Prague and ELLIS Unit Alicante, and has co-authored papers on AI security risks including 'A Security Risk Taxonomy for Prompt-Based Interaction With Large Language Models' and 'Beyond the Safeguards: Exploring the Security Risks of ChatGPT'. While primarily working in industry, she maintains involvement in academic research as an independent researcher.",2,"I was not able to find her direct Google Scholar profile link or a personal website, so some academic details might be incomplete. Most information came from search results rather than primary sources.",3,"Kristina Batistič demonstrates solid expertise in AI security research, particularly focused on the safety risks of large language models, which aligns well with the AI Safety Institute's focus. Her strengths include: 1) She has published relevant papers on AI safety and security risks of LLMs, with at least 2-3 publications in this specific area including a risk taxonomy paper published in IEEE Access; 2) She combines academic knowledge with industry experience as a cybersecurity professional; 3) She has a strong educational background with a double master's degree in cybersecurity from prestigious European technical universities. However, there are factors limiting a higher rating: 1) She appears to be primarily an industry professional rather than a full-time researcher or academic; 2) There is no evidence of a completed PhD or ongoing PhD studies; 3) Her publication record, while focused on AI safety, appears relatively limited compared to candidates with extensive academic research backgrounds; 4) She has not worked at frontier AI labs (like DeepMind, OpenAI, Anthropic). While she shows strong potential and relevant expertise in AI security, these limitations suggest she would be a solid mid-level candidate rather than a top-tier one for the UK AI Safety Institute.",/Users/max/Documents/git_repos/sourcing-app/outputs/2025-05-19_17-25-01-56e3/inspect_logs/2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval,

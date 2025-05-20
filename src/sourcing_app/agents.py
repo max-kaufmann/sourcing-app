@@ -55,7 +55,7 @@ def submit() -> Tool:
 
 def get_candidate_info_tools() -> list[Tool]:
     """Get the tools for the candidate info agent."""
-    return [web_search(provider="google")] + web_browser()
+    return [web_search(provider="tavily")] + web_browser()
 
 
 @agent

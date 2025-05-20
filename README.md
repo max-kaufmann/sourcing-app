@@ -46,4 +46,3 @@ You should then see the inspect_ai UI open up in your browser:
 ![Inspect AI UI](docs/example_output.png)
 
 This will run the application on the example arxiv urls in `scripts/example_arxiv_urls.txt`, and save the output in the `outputs` folder. The output consists of an inspect log, and a csv file with the relevant authors---an example output is provided in `outputs/example_output/`.
-

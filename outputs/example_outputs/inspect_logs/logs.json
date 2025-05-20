@@ -1,0 +1,105 @@
+{
+  "2025-05-19T17-25-04-07-00_AISI Author Sourcing_aJ4Lc3ZXGQRQCebv9cZSvw.eval": {
+    "version": 2,
+    "status": "success",
+    "eval": {
+      "eval_id": "MNCNdySNeZvB3vzkJUKZL2",
+      "run_id": "698RPNVBAUYRWcdQ5Q39ZG",
+      "created": "2025-05-19T17:25:04-07:00",
+      "task": "sourcing_app/AISI Author Sourcing",
+      "task_id": "aJ4Lc3ZXGQRQCebv9cZSvw",
+      "task_version": 0,
+      "task_registry_name": "sourcing_app/AISI Author Sourcing",
+      "task_attribs": {},
+      "task_args": {
+        "arxiv_ids": [
+          "2310.10077",
+          "2306.05499",
+          "2311.01011",
+          "2311.11538",
+          "2311.11415"
+        ],
+        "top_n_authors": 2,
+        "solver": {
+          "type": "agent",
+          "name": "sourcing_app/candidate_rater_agent",
+          "params": {
+            "system_prompt": "You are a candidate finder bot, built to find potential candidates for the UK's AI Safety Institute, a set of machine learning researchers in the UK government. Your job is to find background information about a candidate, where you are given the candidate's name and the url for  a paper which the candidate has appeared in. You should rate the candidate on a scale of 1 to 5, where 1 is the worst and 5 is the best. As well as looking at general competence and experience at machine learning research and engineering, you should also particularly focus on:\n\n- Whether the author has a track record of publishing in ML conferences and a clear interest in adversarial ML or AI safety work (eg as demonstrated by publishing a at least few papers in either area).\n- Whether the author has worked at frontier ai labs, has finished a PhD, or is towards the end of their PhD.\n\nUse your submit tool to return a rating in the following format. Your submission in the tool should be a json object with the following schema:\n\n{model_json_schema}\n\nMake sure to first use your web search too to get some background information about the candidate, and then use your web browser to find other information on the candidate. DONT GIVE UP! Only once you are certain that you cannot find the relevant information about the candidate, then you should submit a rating - however, think carefully about the information that you have found."
+          }
+        }
+      },
+      "dataset": {
+        "samples": 10,
+        "sample_ids": [
+          "author_0",
+          "author_1",
+          "author_2",
+          "author_3",
+          "author_4",
+          "author_5",
+          "author_6",
+          "author_7",
+          "author_8",
+          "author_9"
+        ],
+        "shuffled": false
+      },
+      "sandbox": {
+        "type": "docker",
+        "config": "src/sourcing_app/sandboxes/uk_web_tools.yaml"
+      },
+      "model": "anthropic/claude-3-7-sonnet-20250219",
+      "model_generate_config": {},
+      "model_args": {},
+      "config": {
+        "epochs": 1,
+        "epochs_reducer": [
+          "mean"
+        ],
+        "fail_on_error": true,
+        "max_tasks": 1,
+        "sandbox_cleanup": true,
+        "log_samples": true,
+        "log_realtime": true,
+        "log_images": true,
+        "score_display": true
+      },
+      "revision": {
+        "type": "git",
+        "origin": "https://github.com/max-kaufmann/sourcing-app.git",
+        "commit": "fb2ce19"
+      },
+      "packages": {
+        "inspect_ai": "0.3.98"
+      }
+    },
+    "plan": {
+      "name": "plan",
+      "steps": [
+        {
+          "solver": "candidate_rater_agent",
+          "params": {}
+        }
+      ],
+      "config": {}
+    },
+    "results": {
+      "total_samples": 10,
+      "completed_samples": 10,
+      "scores": []
+    },
+    "stats": {
+      "started_at": "2025-05-19T17:25:04-07:00",
+      "completed_at": "2025-05-19T17:29:02-07:00",
+      "model_usage": {
+        "anthropic/claude-3-7-sonnet-20250219": {
+          "input_tokens": 261,
+          "output_tokens": 18806,
+          "total_tokens": 1684948,
+          "input_tokens_cache_write": 199699,
+          "input_tokens_cache_read": 1466182
+        }
+      }
+    }
+  }
+}
