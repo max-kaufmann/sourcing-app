@@ -14,10 +14,10 @@ ARXIV_URLS = [
     "https://arxiv.org/abs/2306.05499",
     "https://arxiv.org/abs/2311.01011",
     "https://arxiv.org/abs/2311.11538",
-    "https://arxiv.org/abs/2311.11415"
+    "https://arxiv.org/abs/2311.11415",
 ]
 
-TOP_N_AUTHORS = 2 # Select only the top N authors for each paper. If None, all authors are selected.
+TOP_N_AUTHORS = 2  # Select only the top N authors for each paper. If None, all authors are selected.
 MODEL_NAME = "anthropic/claude-3-7-sonnet-20250219"
 DEFAULT_RATER_SYSTEM_PROMPT = """You are a candidate finder bot, built to find potential candidates for the UK's AI Safety Institute, a set of machine learning researchers in the UK government. Your job is to find background information about a candidate, where you are given the candidate's name and the url for  a paper which the candidate has appeared in. You should rate the candidate on a scale of 1 to 5, where 1 is the worst and 5 is the best. As well as looking at general competence and experience at machine learning research and engineering, you should also particularly focus on:
 
@@ -49,5 +49,3 @@ log_dir.mkdir(parents=True, exist_ok=True)
 _, logs = eval_set(tasks=[task], log_dir=log_dir.as_posix(), model=MODEL_NAME)
 output_df = task_output_to_candidate_df(logs[0])
 output_df.to_csv(run_dir / "output.csv", index=False)
-
-

@@ -1,6 +1,6 @@
 # Sourcing with LLMs
 
-This is a sourcing application built with Python, which accepts a list of arxiv paper urls, and then uses LLM agents to get background information about the authors. The current MVP doesn't have a frontend, and uses inspect_ai to go from a list of arxiv paper urls to a parsed list of authors. Currently this supports a single LLM agent, and is more of a proof of concept for exploring the idea, rather than a fully fledged application.
+This is a sourcing application built with Python, which accepts a list of arxiv paper urls, and then uses LLM agents to get background information about the authors. The current MVP doesn't have a frontend, and uses inspect_ai to go from a list of arxiv paper urls to a parsed list of authors. Currently this supports a single LLM agent, and is more of a proof of concept for exploring the idea, rather than something approaching a production app. However, it does run, and although there isn't a frontend, I think that this could (with som more tinkering) be pretty useful as a first pass on recrutiing.
 
 ## Installation
 
@@ -52,8 +52,8 @@ This will run the application on the example arxiv urls in `scripts/example_arxi
 Here are some takeaways from my experimentation:
 - Even under the current under-optimised scaffolding, the LLM agents are able to navigate the web, and often find out who the person is that they are looking for.
 - Currently, they are able to find at least some information (e.g. current place of work, personal website links, etc.) with OK reliability but far from perfect.
-- Many relevant sites (most notably likedin) will block the LLM by default, which is a relatively large barrier.
+- Many relevant sites (most notably likedin) will block the LLM by default, which is a relatively large barrier. I think you could work around it with some dedicated engineering.
 - Price is OK, ends up being <£0.05 per author in all cases I have seen so far.
 - The LLMs seem pretty bad at actual discerning whether a candidate would be exciting using the criteria, but this may be fixable with a more sophisticated prompt.
 
-I would guess with a more work (maybe a few days from an engineer, working with someone who understand recruiting), this could be made into a relatively good function
+I would guess with a more work (maybe a few days from an engineer, working with someone who understand recruiting), this could be made into a relatively good function for creating a list of authors and their background links, and selecting specific information. I also think that, although I'm currently using the built in inspect_ai tools with claude 3.7, o3 with built in web search might be meaningfully better - I think that's something which would be good to explore in the future.
