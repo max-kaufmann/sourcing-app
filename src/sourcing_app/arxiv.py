@@ -20,7 +20,7 @@ class ArxivAuthor(BaseModel):
 
 def get_authors_from_arxiv_ids(
     ids: list[str], client: arxiv.Client = ARXIV_CLIENT
-) -> list[ArxivAuthor]:
+) -> list[list[ArxivAuthor]]:
     """
     Retrieve authors from a list of ArXiv paper IDs.
 
@@ -35,7 +35,7 @@ def get_authors_from_arxiv_ids(
     search = arxiv.Search(id_list=ids)
     results = client.results(search)
 
-    authors: list[ArxivAuthor] = []
+    authors: list[list[ArxivAuthor]] = []
     for paper in results:
         # Extract paper ID from the entry_id (which is a URL)
         paper_id = paper.entry_id.split("/")[-1]
@@ -43,6 +43,7 @@ def get_authors_from_arxiv_ids(
         paper_abstract = paper.summary
         paper_url = paper.entry_id
 
+        authors_for_paper: list[ArxivAuthor] = []
         # Create an Author object for each author of the paper
         for paper_author in paper.authors:
             author = ArxivAuthor(
@@ -52,10 +53,15 @@ def get_authors_from_arxiv_ids(
                 paper_abstract=paper_abstract,
                 paper_url=paper_url,
             )
-            authors.append(author)
+            authors_for_paper.append(author)
+
+        authors.append(authors_for_paper)
 
     return authors
 
 
 def arxiv_id_from_url(url: str) -> str:
-    return re.search(r"arxiv\.org/pdf/(\d+\.\d+)", url).group(1)
+    search_result = re.search(r"arxiv\.org/([a-zA-Z]+)/(\d+\.\d+)", url)
+    if search_result is None:
+        raise ValueError(f"Could not parse arxiv id from url: {url}")
+    return search_result.group(2)

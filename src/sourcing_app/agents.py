@@ -17,17 +17,14 @@ from sourcing_app.task import CandidateRating
 DEFAULT_RATER_SYSTEM_PROMPT = """
 You should rate the candidate on a scale of 1 to 5, where 1 is the worst and 5 is the best. The criteria should be, as well as general competence:
 
-- Which of the authors have strack track records of publishing in ML conferences and a clear interest in adversarial ML or AI safety work (eg as demonstrated by publishing a at least few papers in either area) 
-- Upweight people at frontier ai labs, who’ve finished phds, or who are towards the end of their phd
+- Which of the authors have track records of publishing in ML conferences and a clear interest in adversarial ML or AI safety work (eg as demonstrated by publishing a at least few papers in either area) 
+- Upweight people at frontier ai labs, who hsve finished phds, or who are towards the end of their phd
 
 use your submit tool to return a rating in the following format:
 
 {model_json_schema}
 
-Make sure to first use your web search too to get some background information about the candidate, and then its very important that you actively try to find the different urls which are included in the candidate information using your web browsing tools. Your web search tool is good for a first pass of getting information for a candidate, but you then need to use your web browser to find the other information. You often have difficulty navigating the google.com homepage, so I recommend that you instead directly search by creating the right url for a search query - for example, if you wanted to search for "Yanda Chen", who works at Anthropic, you could navigate to  "https://www.google.com/search?q=yanda+chen+anthropic".
-
-
-DONT GIVE UP! Only once you are certain that you cannot find the relevant information about the candidate, then you shoould submit a rating - however, think carefully about the information that you have found."""
+Make sure to first use your web search too to get some background information about the candidate, and then its very important that you actively try to find the different urls which are included in the candidate information using your web browsing tools. Your web search tool is good for a first pass of getting information for a candidate, but you then need to use your web browser to find the other information. DONT GIVE UP! Only once you are certain that you cannot find the relevant information about the candidate, then you should submit a rating - however, think carefully about the information that you have found."""
 
 
 # helper to extract a submitted answer
@@ -58,7 +55,7 @@ def submit() -> Tool:
 
 def get_candidate_info_tools() -> list[Tool]:
     """Get the tools for the candidate info agent."""
-    return [web_search(provider="tavily")] + web_browser()
+    return [web_search(provider="google")] + web_browser()
 
 
 @agent

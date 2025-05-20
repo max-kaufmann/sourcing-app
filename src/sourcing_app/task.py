@@ -71,9 +71,9 @@ DEFAULT_SANDBOX_CONFIG = Path(__file__).parent / "sandboxes" / "uk_web_tools.yam
 
 
 @task(name="AISI Author Sourcing")
-def source_authors(
+def source_authors_task(
     arxiv_ids: list[str],
-    maximum_authors: int | None = None,
+    top_n_authors: int | None = None,
     sandbox_config: Path = DEFAULT_SANDBOX_CONFIG,
     input_prompt: str = DEFAULT_INPUT_PROMPT,
     solver: Agent | None = None,
@@ -84,17 +84,21 @@ def source_authors(
 
     Args:
         arxiv_ids: List of ArXiv paper IDs to search for authors
+        top_n_authors: Maximum number of authors to source for each paper (starting from left to right, lets you select the top N authors)
+        sandbox_config: Path to the sandbox config file
+        input_prompt: Prompt to use for the input
+        solver: Solver to use for the task, defaults to sourcing_app.agents.candidate_rater_agent()
     """
 
     # Step 1: Get authors from ArXiv
     authors = get_authors_from_arxiv_ids(arxiv_ids)
-    input_json_schema = json.dumps(CandidateRating.model_json_schema())
+    INPUT_JSON_SCHEMA = json.dumps(CandidateRating.model_json_schema())
 
-    if maximum_authors is not None:
-        authors = authors[:maximum_authors]
+    if top_n_authors is not None:
+        authors = [authors_for_paper[:top_n_authors] for authors_for_paper in authors]
 
-    # Replace the {model_json_schema} with the JSON schema of the Candidate model
-
+    # We flatten the list of authors
+    authors = [author for authors_for_paper in authors for author in authors_for_paper]
     # Step 2: Create samples for each author
     samples: list[Sample] = []
     for i, author in enumerate(authors):
@@ -106,7 +110,7 @@ def source_authors(
                 paper_title=author.paper_title,
                 paper_url=author.paper_url,
                 paper_abstract=author.paper_abstract,
-                model_json_schema=input_json_schema,
+                model_json_schema=INPUT_JSON_SCHEMA,
             ),
             # We'll add the basic author info to metadata
             metadata={"author": author.model_dump()},
